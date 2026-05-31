@@ -7,11 +7,9 @@ const sections = document.querySelectorAll("section");
 const progressBar = document.getElementById("progress-bar");
 const typingText = document.getElementById("typing-text");
 
-// =========================
-// TYPING ANIMATION
-// =========================
-
-
+/* =========================
+   TYPING ANIMATION
+========================= */
 const words = [
     "Software Developer 💻",
     "Java Enthusiast ☕",
@@ -24,20 +22,19 @@ let charIndex = 0;
 let isDeleting = false;
 
 function typeEffect() {
-    const currentWord = words[wordIndex];
+    const word = words[wordIndex];
 
-    if (isDeleting) {
-        charIndex--;
-    } else {
+    typingText.textContent = word.substring(0, charIndex);
+
+    if (!isDeleting) {
         charIndex++;
+    } else {
+        charIndex--;
     }
 
-    typingText.textContent = currentWord.substring(0, charIndex);
-
-    if (!isDeleting && charIndex === currentWord.length) {
+    if (!isDeleting && charIndex === word.length) {
         isDeleting = true;
-        setTimeout(typeEffect, 1200);
-        return;
+        return setTimeout(typeEffect, 1200);
     }
 
     if (isDeleting && charIndex === 0) {
@@ -50,103 +47,33 @@ function typeEffect() {
 
 typeEffect();
 
-document.getElementById("cvDownload")?.addEventListener("click", () => {
-    console.log("CV downloaded");
-
-    // optional: send to analytics
-    localStorage.setItem("cv_downloaded", "true");
-});
-
 /* =========================
-   SCROLL EFFECT (OPTIMIZED)
+   ANALYTICS (SAFE INIT)
 ========================= */
-function handleScroll() {
+const analytics = {
+    cv_clicks: 0,
+    project_views: 0,
+    github_clicks: 0,
+    demo_clicks: 0
+};
 
-    const scrollY = window.scrollY;
-
-    /* Navbar blur + shrink */
-    navbar.classList.toggle("scrolled", scrollY > 50);
-    navbar.classList.toggle("shrink", scrollY > 80);
-
-    /* Progress bar */
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight =
-        document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-    const scrollPercent = (scrollTop / scrollHeight) * 100;
-    progressBar.style.width = scrollPercent + "%";
-
-    /* Active nav links */
-    let current = "";
-
-    sections.forEach(section => {
-        const top = section.offsetTop - 150;
-        if (scrollY >= top) {
-            current = section.id;
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
+function saveAnalytics() {
+    localStorage.setItem("portfolio_analytics", JSON.stringify(analytics));
 }
 
-// =========================
-// SCROLL SPY NAVBAR
-// =========================
+function loadAnalytics() {
+    const saved = localStorage.getItem("portfolio_analytics");
+    if (saved) Object.assign(analytics, JSON.parse(saved));
+}
 
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.clientHeight;
-
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
-});
-
-window.addEventListener("scroll", handleScroll);
-handleScroll();
+loadAnalytics();
 
 /* =========================
-   INTERSECTION OBSERVER (REVEAL)
+   CV CLICK
 ========================= */
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-}, {
-    threshold: 0.15
-});
-
-sections.forEach(section => observer.observe(section));
-
-/* =========================
-   THEME TOGGLE
-========================= */
-const themeToggle = document.getElementById("theme-toggle");
-
-themeToggle?.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-
-    themeToggle.textContent =
-        document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+document.getElementById("cvDownload")?.addEventListener("click", () => {
+    analytics.cv_clicks++;
+    saveAnalytics();
 });
 
 /* =========================
@@ -183,14 +110,81 @@ window.openProject = function (key) {
     modalDemo.href = p.demo;
 
     modal.style.display = "flex";
+
+    analytics.project_views++;
+    saveAnalytics();
 };
 
-closeBtn?.addEventListener("click", () => {
-    modal.style.display = "none";
+closeBtn?.addEventListener("click", () => modal.style.display = "none");
+
+window.addEventListener("click", e => {
+    if (e.target === modal) modal.style.display = "none";
 });
 
-window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
+/* =========================
+   SCROLL (OPTIMIZED SINGLE LOOP)
+========================= */
+let ticking = false;
+
+function onScroll() {
+    const scrollY = window.scrollY;
+
+    navbar.classList.toggle("scrolled", scrollY > 50);
+    navbar.classList.toggle("shrink", scrollY > 80);
+
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight =
+        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    progressBar.style.width = (scrollTop / scrollHeight) * 100 + "%";
+
+    let current = "";
+
+    sections.forEach(section => {
+        const top = section.offsetTop - 150;
+        const height = section.offsetHeight;
+
+        if (scrollY >= top && scrollY < top + height) {
+            current = section.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.toggle(
+            "active",
+            link.getAttribute("href") === "#" + current
+        );
+    });
+}
+
+window.addEventListener("scroll", () => {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            onScroll();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
+
+sections.forEach(sec => observer.observe(sec));
+
+/* =========================
+   THEME TOGGLE
+========================= */
+document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
 });
 
 /* =========================
@@ -201,79 +195,25 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
         loader.style.opacity = "0";
-
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 500);
-
+        setTimeout(() => loader.style.display = "none", 500);
     }, 800);
 });
 
-// fetch("https://api.github.com/users/YOUR_USERNAME/repos")
-//     .then(res => res.json())
-//     .then(data => {
-//         const container = document.querySelector(".projects-container");
-//         container.innerHTML = "";
+const backToTop = document.getElementById("backToTop");
 
-//         data.slice(0, 6).forEach(repo => {
-//             const card = document.createElement("div");
-//             card.className = "project-card";
-
-//             card.innerHTML = `
-//                 <h3>${repo.name}</h3>
-//                 <p>${repo.description || "No description"}</p>
-//                 <a href="${repo.html_url}" target="_blank">View on GitHub</a>
-//             `;
-
-//             container.appendChild(card);
-//         });
-//     });
-
-// =========================
-// BACK TO TOP BUTTON
-// =========================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const backToTop = document.getElementById("backToTop");
-
-    if (!backToTop) return; // safety check
-
-    // show/hide button
-    window.addEventListener("scroll", () => {
+if (backToTop) {
+    const toggleBtn = () => {
         if (window.scrollY > 300) {
-            backToTop.style.display = "flex";
+            backToTop.classList.add("show");
         } else {
-            backToTop.style.display = "none";
+            backToTop.classList.remove("show");
         }
-    });
+    };
 
-    // click event
+    window.addEventListener("scroll", toggleBtn);
+    window.addEventListener("load", toggleBtn);
+
     backToTop.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-});
-
-function filterProjects(type) {
-    const cards = document.querySelectorAll(".project-card");
-
-    cards.forEach(card => {
-        const match = type === "all" || card.dataset.type === type;
-        card.style.display = match ? "block" : "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
-
-const fills = document.querySelectorAll(".fill");
-
-window.addEventListener("scroll", () => {
-    fills.forEach(fill => {
-        const rect = fill.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-            fill.style.width = fill.classList.contains("java") ? "90%" : "75%";
-        }
-    });
-});
