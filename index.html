@@ -1,427 +1,741 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Sakhile Skosana Portfolio</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div id="loader">
-            <div class="spinner"></div>
-            <p>Loading Portfolio...</p>
+    <meta
+        name="description"
+        content="Sakhile Skosana's portfolio showcasing software development projects, technical skills, and professional experience in full-stack development and DevOps."
+    >
+
+    <title>Sakhile Skosana | Software Developer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Loading Portfolio...</p>
+    </div>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="progress-bar"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">Sakhile.</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle theme"
+        >
+            🌙
+        </button>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="bg-blobs">
+            <div class="blob"></div>
+            <div class="blob"></div>
         </div>
 
-        <div id="progress-bar"></div>
-        <!-- NAVBAR -->
-        <nav class="navbar">
+        <div class="hero-content">
 
-            <div class="logo">
-                Sakhile.
+            <div class="hero-image">
+                <img
+                    src="images/my_image_1.jpeg"
+                    alt="Portrait of Sakhile Skosana"
+                >
             </div>
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <p class="intro" id="typing-text"></p>
 
-            <button id="theme-toggle">
-                🌙
+            <h1>
+                Hi, I'm <span>Sakhile Skosana</span>
+            </h1>
+
+            <p class="description">
+                Full Stack DevOps Engineer gaining practical experience
+                at the 4IR Research Lab at TUT Soshanguve Campus.
+                Passionate about Java development, web applications,
+                and building software solutions that solve real-world problems.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn-primary">
+                    View Projects
+                </a>
+
+                <a
+                    href="wil letter/WIL letter SC Skosana , 240815419.pdf"
+                    download
+                    class="btn-secondary"
+                    id="wilLetterDownload"
+                >
+                    View WIL Letter
+                </a>
+
+                <a
+                    href="resume/Sakhile Skosana (2).pdf"
+                    download
+                    class="btn-secondary"
+                    id="cvDownload"
+                >
+                    Download CV
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="quick-links">
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#journey">Journey</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+
+        <div class="about-text">
+
+            <h2>About Me</h2>
+
+            <p>
+                I'm pursuing my Diploma in Computer Science and currently
+                gaining practical experience as a Full Stack DevOps Engineer
+                at the 4IR Research Lab at TUT Soshanguve Campus through
+                Work-Integrated Learning (WIL).
+            </p>
+
+            <p>
+                I enjoy building software solutions, solving technical
+                problems, and learning new technologies. Through my
+                academic work and personal projects, I've gained experience
+                in full-stack development, database management, and
+                application design. I'm continuing to develop my skills
+                and gain experience working on real-world projects.
+            </p>
+
+        </div>
+
+        <div class="skills-card">
+
+            <h3>Technical Skills</h3>
+
+            <div class="skills">
+                <span>Java</span>
+                <span>JSP &amp; Servlets</span>
+                <span>EJB</span>
+                <span>SQL</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>TypeScript</span>
+                <span>Git &amp; GitHub</span>
+                <span>Python</span>
+                <span>Docker</span>
+                <span>NetBeans</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JOURNEY / TIMELINE SECTION -->
+    <section class="timeline" id="journey">
+
+        <div class="timeline-title">
+            <h2>My Journey</h2>
+            <p>My academic and development journey so far.</p>
+        </div>
+
+        <div class="timeline-container">
+
+            <!-- 2023 -->
+            <div class="timeline-item">
+
+                <div class="timeline-year">2023</div>
+
+                <div class="timeline-content">
+
+                    <h3>Matriculated</h3>
+
+                    <p>
+                        Successfully completed Grade 12 at Esther Maleka
+                        Comprehensive High School, marking the beginning
+                        of my journey toward a career in technology.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 2024 -->
+            <div class="timeline-item">
+
+                <div class="timeline-year">2024</div>
+
+                <div class="timeline-content">
+
+                    <h3>Started Computer Science at TUT</h3>
+
+                    <p>
+                        Enrolled at Tshwane University of Technology (TUT)
+                        and began studying Computer Science, learning
+                        programming fundamentals, problem-solving, and
+                        software development principles.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 2025: MAISH HACKATHON -->
+            <div class="timeline-item">
+
+                <div class="timeline-year">2025</div>
+
+                <div class="timeline-content">
+
+                    <h3>MAISH Hackathon Participant</h3>
+
+                    <p>
+                        Participated in the MAISH Hackathon at TUT
+                        eMalahleni Campus, collaborating with fellow students
+                        to develop technology solutions under time constraints
+                        while strengthening teamwork, communication, and
+                        problem-solving skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 2025: SOFTWARE DEVELOPMENT -->
+            <div class="timeline-item">
+
+                <div class="timeline-year">2025</div>
+
+                <div class="timeline-content">
+
+                    <h3>Advanced Software Development</h3>
+
+                    <p>
+                        Expanded my knowledge of Java programming,
+                        Object-Oriented Programming, databases, web
+                        development, and enterprise application development
+                        through academic projects and practical assignments.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 2026: PROJECTS -->
+            <div class="timeline-item">
+
+                <div class="timeline-year">2026</div>
+
+                <div class="timeline-content">
+
+                    <h3>Building Professional Projects</h3>
+
+                    <p>
+                        Developed full-stack projects and a professional
+                        portfolio while strengthening my software
+                        development skills and preparing for industry experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SEPTEMBER 2026: 4IR RESEARCH LAB -->
+            <div class="timeline-item">
+
+                <div class="timeline-year">September 2026 – Present</div>
+
+                <div class="timeline-content">
+
+                    <h3>Full Stack DevOps Engineer</h3>
+
+                    <h4>4IR Research Lab | TUT Soshanguve Campus</h4>
+
+                    <p>
+                        Gaining hands-on practical experience through
+                        Work-Integrated Learning (WIL), contributing to
+                        full-stack software development and DevOps activities
+                        while applying technical knowledge to real-world projects.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="certifications" id="certifications">
+
+        <div class="certifications-title">
+
+            <h2>Certifications &amp; Achievements</h2>
+
+            <p>
+                Courses, certificates, and notable accomplishments.
+            </p>
+
+        </div>
+
+        <div class="certifications-container">
+
+            <div class="certification-card">
+
+                <h3>MAISH Hackathon Participant</h3>
+
+                <p>TUT eMalahleni Campus • 2025</p>
+
+            </div>
+
+            <div class="certification-card">
+
+                <h3>Computer Science Diploma</h3>
+
+                <p>Tshwane University of Technology</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects" id="projects">
+
+        <div class="projects-title">
+
+            <span class="section-label">MY WORK</span>
+
+            <h2>Featured Projects</h2>
+
+            <p>
+                A selection of applications I've developed to solve practical
+                problems using software development and modern technologies.
+            </p>
+
+        </div>
+
+        <!-- PROJECT FILTERS -->
+        <div class="filter-buttons">
+
+            <button
+                type="button"
+                class="filter-btn active"
+                data-filter="all"
+            >
+                All Projects
             </button>
 
-        </nav>
+            <button
+                type="button"
+                class="filter-btn"
+                data-filter="web"
+            >
+                Web Development
+            </button>
 
+            <button
+                type="button"
+                class="filter-btn"
+                data-filter="java"
+            >
+                Java Development
+            </button>
 
-        <!-- HERO SECTION -->
-        <section class="hero" id="home">
-
-            <div class="bg-blobs">
-                <div class="blob"></div>
-                <div class="blob"></div>
-            </div>
-            <div class="hero-content">
-
-                <div class="hero-image">
-                    <img src="images/my_image_1.jpeg" alt="Sakhile Skosana">
-                </div>
-                <p class="intro" id="typing-text"></p>
-
-                <h1>
-                    Hi, I'm <span>Sakhile Skosana</span>
-                </h1>
-
-                <p class="description">
-                    Passionate about Java development, web applications,
-                    and building software solutions that solve real-world problems.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#projects" class="btn-primary">
-                        View Projects
-                    </a>
-
-                    <a href="resume/Sakhile Skosana (2).pdf"
-                        download
-                        class="btn-secondary"
-                        id="cvDownload">
-                        Download CV
-                    </a>
-
-                </div>
-
-            </div>
-
-             <!-- QUICK LINKS -->
-            <div class="quick-links">
-                <a href="#about">About Me</a>
-                <a href="#projects">Projects</a>
-                <a href="#journey">Journey</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-        </section>
-
-        <!-- ABOUT SECTION -->
-
-        <section class="about" id="about">
-
-            <div class="about-text">
-
-                <h2>About Me</h2>
-
-                <p>
-                    I am a Computer Science student passionate about software
-                    development, Java programming, and building modern web
-                    applications. I enjoy solving problems and creating systems
-                    that are clean, functional, and user-friendly.
-                </p>
-
-            </div>
-
-
-            <div class="skills-card">
-
-                <h3>Technical Skills</h3>
-
-                <div class="skills">
-
-                    <span>Java</span>
-                    <span>JSP & Servlets</span>
-                    <span>EJB</span>
-                    <span>SQL</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>React</span>
-                    <span>Node</span>
-                    <span>GitHub</span>
-
-                </div>
-
-            </div>
-            
-
-        </section>
-
-        <!-- TIMELINE SECTION -->
-
-        <section class="timeline" id="journey">
-
-            <div class="timeline-title">
-                <h2>My Journey</h2>
-                <p>My academic and development journey so far.</p>
-            </div>
-
-
-            <div class="timeline-container">
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2023</div>
-
-                    <div class="timeline-content">
-                        <h3>Matriculated</h3>
-
-                        <p>
-                            Successfully completed Grade 12 at Esther Maleka Comprehensive High School,
-                            marking the beginning of my journey toward a career in technology.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2024</div>
-
-                    <div class="timeline-content">
-                        <h3>Started Computer Science at TUT</h3>
-
-                        <p>
-                            Enrolled at Tshwane University of Technology (TUT) and began studying
-                            Computer Science, learning programming fundamentals, problem-solving,
-                            and software development principles.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-
-                    <div class="timeline-content">
-                        <h3>MAISH Hackathon Participant</h3>
-
-                        <p>
-                            Participated in the MAISH Hackathon at TUT eMalahleni Campus, collaborating
-                            with fellow students to develop innovative technology solutions under time
-                            constraints while strengthening teamwork, communication, and problem-solving skills.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-
-                    <div class="timeline-content">
-                        <h3>Advanced Software Development</h3>
-
-                        <p>
-                            Expanded my knowledge of Java programming, Object-Oriented Programming,
-                            databases, web development, and enterprise application development through
-                            academic projects and practical assignments.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2026</div>
-
-                    <div class="timeline-content">
-                        <h3>Building Professional Projects</h3>
-
-                        <p>
-                            Developing a professional portfolio, building modern web applications,
-                            and preparing for internship and graduate opportunities in the software industry.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- CERTIFICATIONS SECTION -->
-
-        <section class="certifications" id="certifications">
-
-            <div class="certifications-title">
-                <h2>Certifications & Achievements</h2>
-                <p>Courses, certificates, and notable accomplishments.</p>
-            </div>
-
-            <div class="certifications-container">
-
-                <div class="certification-card">
-                    <h3>MAISH Hackathon Participant</h3>
-                    <p>TUT eMalahleni Campus • 2025</p>
-                </div>
-
-                <div class="certification-card">
-                    <h3>Computer Science Student</h3>
-                    <p>Tshwane University of Technology • Ongoing</p>
-                </div>
-
-                <!-- Add more certifications here -->
-
-            </div>
-
-        </section>
-
-        <div class="filter-buttons">
-            <button onclick="filterProjects('all')">All</button>
-            <button onclick="filterProjects('java')">Java</button>
-            <button onclick="filterProjects('web')">Web</button>
         </div>
 
-        <!-- PROJECTS SECTION -->
+        <div class="projects-container">
 
-        <section class="projects" id="projects">
+            <!-- PROJECT 1: THE NIGHT'S WATCH -->
+            <article class="project-card" data-type="web">
 
-            <div class="projects-title" >
+                <div class="project-image project-nightwatch">
 
-                <h2>Featured Projects</h2>
+                    <span class="project-number">01</span>
 
-                <p>
-                    Some of the projects I have worked on.
-                </p>
+                    <span class="project-category">
+                        FULL-STACK WEB APP
+                    </span>
 
-            </div>
+                    <div class="project-visual">
 
-
-            <div class="projects-container">
-                <h3>🚧 Projects Coming Soon</h3>
-                <p>
-                    I am currently building and uploading my projects.
-                    Check back soon for updates!
-                </p>
-
-                <!-- PROJECT 1 -->
-
-                <!-- <div class="project-card" data-type="web">
-
-                    <div class="project-image"></div>
-
-                    <h3>Fibonacci Game Web App</h3>
-
-                    <p>
-                        A web application game where users identify Fibonacci numbers
-                        against the computer.
-                    </p>
-
-                    <div class="project-tech">
-
-                        <span>Java</span>
-                        <span>JSP</span>
-                        <span>Servlets</span>
+                        <img
+                            src="images/The Night’s Watch Community Safety Logo.png"
+                            alt="The Night's Watch Community Safety Logo"
+                        >
 
                     </div>
 
-                    <button>
-                        View Project
-                    </button>
+                </div>
 
-                </div> -->
+                <div class="project-info">
 
+                    <div class="project-status">
+                        <span class="status-dot"></span>
+                        Completed
+                    </div>
 
-                <!-- PROJECT 2 -->
-
-                <!-- <div class="project-card" data-type="java">
-
-                    <div class="project-image"></div>
-
-                    <h3>Encrypted Messaging System</h3>
+                    <h3>The Night's Watch</h3>
 
                     <p>
-                        A Java EE messaging system with encryption and decryption
-                        functionality.
+                        A neighborhood safety reporting system that allows
+                        residents to report local issues and track their
+                        progress. Includes role-based access, report
+                        assignments, status tracking, location-based searches,
+                        and an administration dashboard.
                     </p>
 
                     <div class="project-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>TypeScript</span>
+                        <span>Supabase</span>
+                        <span>PostGIS</span>
+                    </div>
 
-                        <span>Java EE</span>
-                        <span>EJB</span>
-                        <span>JPA</span>
+                    <div class="project-buttons">
+
+                        <button
+                            type="button"
+                            class="project-details-btn"
+                            data-project="nightwatch"
+                        >
+                            Project Details ↗
+                        </button>
+
+                        <a
+                            href="https://github.com/charlie2-6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                            data-github
+                        >
+                            GitHub ↗
+                        </a>
 
                     </div>
 
-                    <button>
-                        View Project
-                    </button>
+                </div>
 
-                </div> -->
+            </article>
 
+            <!-- PROJECT 2: SMART CITY -->
+            <article class="project-card" data-type="web">
 
-                <!-- PROJECT 3 -->
+                <div class="project-image project-smartcity">
 
-                <!-- <div class="project-card" data-type="java">
+                    <span class="project-number">02</span>
 
-                    <div class="project-image"></div>
+                    <span class="project-category">
+                        AI-POWERED WEB APP
+                    </span>
 
-                    <h3>Doctor Association System</h3>
+                    <div class="project-visual">🏙️</div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-status">
+                        <span class="status-dot"></span>
+                        Completed
+                    </div>
+
+                    <h3>Smart City Complaint Management</h3>
 
                     <p>
-                        A Java application that manages doctors and treatment
-                        specializations.
+                        A municipal complaint management system designed to
+                        help citizens report and track service delivery issues.
+                        Features role-based dashboards and an AI-powered
+                        classifier for categorising and prioritising complaints.
                     </p>
 
                     <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>AI / NLP</span>
+                        <span>PostgreSQL</span>
+                        <span>PostGIS</span>
+                        <span>Web Development</span>
+                    </div>
 
+                    <div class="project-buttons">
+
+                        <button
+                            type="button"
+                            class="project-details-btn"
+                            data-project="smartcity"
+                        >
+                            Project Details ↗
+                        </button>
+
+                        <a
+                            href="https://github.com/charlie2-6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                            data-github
+                        >
+                            GitHub ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- PROJECT 3: RESIDENCE MAINTENANCE -->
+            <article class="project-card" data-type="java">
+
+                <div class="project-image project-maintenance">
+
+                    <span class="project-number">03</span>
+
+                    <span class="project-category">
+                        JAVA APPLICATION
+                    </span>
+
+                    <div class="project-visual">🔧</div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-status status-progress">
+                        <span class="status-dot"></span>
+                        In Development
+                    </div>
+
+                    <h3>Residence Maintenance Reporting</h3>
+
+                    <p>
+                        A maintenance reporting application designed for
+                        university residences. Students can report maintenance
+                        issues, while maintenance workers can manage repairs
+                        and record completion notes.
+                    </p>
+
+                    <div class="project-tech">
                         <span>Java</span>
+                        <span>JDBC</span>
                         <span>OOP</span>
-                        <span>NetBeans</span>
+                        <span>SQL</span>
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <button
+                            type="button"
+                            class="project-details-btn"
+                            data-project="maintenance"
+                        >
+                            Project Details ↗
+                        </button>
+
+                        <a
+                            href="https://github.com/charlie2-6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                            data-github
+                        >
+                            GitHub ↗
+                        </a>
 
                     </div>
 
-                    <button>
-                        View Project
-                    </button>
-
-                </div> -->
-
-            </div>
-
-        </section>
-
-        <!-- CONTACT SECTION -->
-
-        <section class="contact" id="contact">
-
-            <h2>Let's Connect</h2>
-
-            <p>
-                I’m open to internships, collaborations,
-                and software development opportunities.
-            </p>
-
-
-            <div class="contact-buttons">
-
-                <a href="https://github.com/charlie2-6" target="_blank">GitHub</a>
-
-                <a href="https://linkedin.com/in/sakhile-skosana-1134792b5" target="_blank">LinkedIn</a>
-
-                <a href="mailto:sakhileskosana89@email.com">Email Me</a>
-
-            </div>
-
-        </section>
-
-
-        <!-- FOOTER -->
-
-        <footer>
-
-            <p>
-                © 2026 Sakhile Skosana. All rights reserved.
-            </p>
-
-        </footer>
-
-        <script src="script.js"></script>
-
-        <div id="project-modal" class="modal">
-
-            <div class="modal-content">
-
-                <span class="close">&times;</span>
-
-                <h2 id="modal-title"></h2>
-
-                <p id="modal-desc"></p>
-
-                <div id="modal-tech"></div>
-
-                <div class="modal-buttons">
-                    <a id="modal-github" target="_blank">GitHub</a>
-                    <a id="modal-demo" target="_blank">Live Demo</a>
                 </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+
+        <h2>Let's Connect</h2>
+
+        <p>
+            I'm open to professional connections, collaborations,
+            and software development opportunities.
+        </p>
+
+        <div class="contact-buttons">
+
+            <a
+                href="https://github.com/charlie2-6"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+            <a
+                href="https://linkedin.com/in/sakhile-skosana-1134792b5"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+
+            <a href="mailto:sakhileskosana89@email.com">
+                Email Me
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Sakhile Skosana. All rights reserved.
+        </p>
+
+    </footer>
+
+    <!-- PROJECT DETAILS MODAL -->
+    <div
+        id="project-modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-hidden="true"
+    >
+
+        <div class="modal-content">
+
+            <button
+                type="button"
+                class="close"
+                aria-label="Close project details"
+            >
+                &times;
+            </button>
+
+            <h2 id="modal-title"></h2>
+
+            <p id="modal-desc"></p>
+
+            <div id="modal-tech"></div>
+
+            <div class="modal-buttons">
+
+                <a
+                    id="modal-github"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    id="modal-demo"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Live Demo
+                </a>
 
             </div>
 
         </div>
-        <section class="dashboard">
-            <h2>Recruiter Analytics</h2>
 
-            <div class="dash-grid">
-                <div>📄 CV Clicks: <span id="cvCount">0</span></div>
-                <div>🧩 Project Views: <span id="projectCount">0</span></div>
-                <div>🔗 GitHub Clicks: <span id="gitCount">0</span></div>
-                <div>🚀 Demo Clicks: <span id="demoCount">0</span></div>
+    </div>
+
+    <!-- RECRUITER ANALYTICS DASHBOARD -->
+    <section class="dashboard">
+
+        <h2>Recruiter Analytics</h2>
+
+        <div class="dash-grid">
+
+            <div>
+                📄 CV Clicks:
+                <span id="cvCount">0</span>
             </div>
-</section>
-        <button id="backToTop">↑</button>
-    </body>
+
+            <div>
+                🧩 Project Views:
+                <span id="projectCount">0</span>
+            </div>
+
+            <div>
+                🔗 GitHub Clicks:
+                <span id="gitCount">0</span>
+            </div>
+
+            <div>
+                🚀 Demo Clicks:
+                <span id="demoCount">0</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BACK TO TOP -->
+    <button
+        type="button"
+        id="backToTop"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
 </html>
